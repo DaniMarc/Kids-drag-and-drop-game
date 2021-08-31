@@ -8,6 +8,7 @@ class GameEngine(Frame):
         super().__init__(master)
         self.master = master
         self.pack()
+        self.image_counter = 0
         self.w = 1200
         self.h = 700
         self.x_half = self.w/2
@@ -92,22 +93,25 @@ class GameEngine(Frame):
     def release_click(self, event):
         if (event.y > self.y_half) and (event.x < self.x_half):
             if self.animal_type == "wild/":
+                self.points += 1
                 self.reinit_image()  
+                self.my_canvas.itemconfigure(self.points_id, text=str(self.points))
+            else: 
+                self.points -= 1
                 self.my_canvas.itemconfigure(self.points_id, text=str(self.points))
         elif (event.y > self.y_half) and (event.x > self.x_half):
             if self.animal_type == "tamed/":
+                self.points += 1
                 self.reinit_image()                
+                self.my_canvas.itemconfigure(self.points_id, text=str(self.points))
+            else: 
+                self.points -= 1
                 self.my_canvas.itemconfigure(self.points_id, text=str(self.points))
 
 
     def reinit_image(self):
         self.image_name = self.image_picker()
-        imgpath = self.image_name
-        img = PhotoImage(file=imgpath)
-        img = img.zoom(11)
-        img = img.subsample(29)
-        # self.my_canvas.configure(self.image_id, file=imgpath)
-        self.points += 1
+        img = self.get_image()
         self.my_canvas.create_image(self.x_half, 125,image=img)
         self.my_canvas.itemconfig(self.name_id, text=self.animal_name)
         
