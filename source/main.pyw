@@ -1,6 +1,3 @@
-# Project made by the soul purpose of learning and helping other learn (AND teach)
-# Feel free to use it, giving credits where credits are due!
-# Made by Marc Daniel, Campeni, Alba, Romania (September 2021)
 import pickle
 from  tkinter import *
 from pickle import *
@@ -55,9 +52,9 @@ class StartPage(Frame):
         label = Label(self, image=title_img)
         label.pack()
 
-        play_btn = PhotoImage(file="../resources/icon/play_button_icon2.png")
-        rank_btn = PhotoImage(file="../resources/icon/rankings_button_icon2.png")
-        exit_btn = PhotoImage(file="../resources/icon/exit_button_icon2.png")
+        play_btn = PhotoImage(file="../resources/icon/play_button_icon3.png")
+        rank_btn = PhotoImage(file="../resources/icon/rankings_button_icon3.png")
+        exit_btn = PhotoImage(file="../resources/icon/exit_button_icon3.png")
         button1 = Button(self, image=play_btn, 
                             command=lambda: controller.show_frame(GameEngine), borderwidth=0)
         button1.pack(pady=10)
@@ -68,8 +65,8 @@ class StartPage(Frame):
                             command=lambda: controller.quit_game(), borderwidth=0)
         button3.pack(pady=5)
 
-        my_name_label = Label(self, text="© Game Developed by Marc Daniel / Joc realizat de Marc Daniel © \n • Contact: contact.dev.marc.daniel@gmail.com")
-        my_name_label.pack()
+        # my_name_label = Label(self, text="© Game Developed by Marc Daniel / Joc realizat de Marc Daniel © \n • Contact: contact.dev.marc.daniel@gmail.com")
+        # my_name_label.pack()
 
 
 # ============================================================= GAME ENGINE
@@ -96,7 +93,7 @@ class GameEngine(Frame):
         self.points_id = None
         self.points_score_text_id = None
         self.image_name = self.image_picker()
-        self.my_canvas = Canvas(self, width=self.w, height=self.h, bg="white")
+        self.my_canvas = Canvas(self, width=self.w, height=self.h-100, bg="white")
         self.coord_label = Label(self)
         self.create_widgets()
         self.create_bindings()
@@ -114,12 +111,12 @@ class GameEngine(Frame):
         self.my_canvas.create_text(self.x_half/2, self.y_half-15, text="Animal sălbatic", font=("Helvetica","20"), fill="red")
         self.my_canvas.create_rectangle(0, self.y_half, self.x_half, self.h, fill="#8a170f")
         wild_icon = PhotoImage(file="../resources/icon/wild_icon.png")
-        self.my_canvas.create_image(self.x_half/2, self.y_half+self.y_half/2,image=wild_icon)
+        self.my_canvas.create_image(self.x_half/2, self.y_half+self.y_half/2-50,image=wild_icon)
         #TAMED ANIMALS
         self.my_canvas.create_text(self.x_half+self.x_half/2, self.y_half-15, text="Animal domestic", font=("Helvetica","20"), fill="green")
         self.my_canvas.create_rectangle(self.x_half, self.y_half, self.w, self.h, fill="#186b0c")
         tamed_image = PhotoImage(file="../resources/icon/tamed_icon.png")
-        self.my_canvas.create_image(self.x_half+self.x_half/2, self.y_half+self.y_half/2,image=tamed_image)
+        self.my_canvas.create_image(self.x_half+self.x_half/2, self.y_half+self.y_half/2-50,image=tamed_image)
         #Image
         imgpath = self.image_name
         img = PhotoImage(file=imgpath)
@@ -272,7 +269,7 @@ class RankingsPage(Frame):
         self.h = 700
         self.x_half = self.w/2
         self.y_half = self.h/2
-        self.ranks_canvas = Canvas(self, width = self.w, height=self.h, bg="white")
+        self.ranks_canvas = Canvas(self, width = 1200, height=500, bg="white")
         self.ranks_canvas.pack(pady=5)
         button1 = Button(self, text="Înapoi la meniul principal", 
                             command=lambda: controller.show_frame(StartPage))
