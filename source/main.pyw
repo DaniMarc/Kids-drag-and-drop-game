@@ -1,3 +1,6 @@
+# Project made by the soul purpose of learning and helping other learn (AND teach)
+# Feel free to use it, giving credits where credits are due!
+# Made by Marc Daniel, Campeni, Alba, Romania (September 2021)
 import pickle
 from  tkinter import *
 from pickle import *
