@@ -65,8 +65,8 @@ class StartPage(Frame):
                             command=lambda: controller.quit_game(), borderwidth=0)
         button3.pack(pady=5)
 
-        # my_name_label = Label(self, text="© Game Developed by Marc Daniel / Joc realizat de Marc Daniel © \n • Contact: contact.dev.marc.daniel@gmail.com")
-        # my_name_label.pack()
+        my_name_label = Label(self, text="© Game Developed by Marc Daniel / Joc realizat de Marc Daniel © \n • Contact: contact.dev.marc.daniel@gmail.com")
+        my_name_label.pack()
 
 
 # ============================================================= GAME ENGINE
